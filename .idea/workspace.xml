@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4769d1c1-3b6d-423e-8f6d-03013a9f85d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/java-basis/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/easycode/codebase-v2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/src/main/java/com/hurryclear/collection/CollectionTest1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/src/main/java/com/hurryclear/collection/CollectionTest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/src/main/java/org/example/PriorityQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java-basis/src/main/java/org/example/Thread/MyThread.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/java-basis" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2vULkV6pPgQo0jDOjgIY4h4D5iA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/hurjiang/Documents/101_cs_hc/101_cs_code/win-java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.28610855",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.CollectionTest1">
+    <configuration name="CollectionTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hurryclear.collection.CollectionTest1" />
+      <module name="win-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hurryclear.collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootWeb01Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hurryclear.springbootweb01.SpringbootWeb01Application" />
+      <module name="main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hurryclear.springbootweb01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CollectionTest1" />
+        <item itemvalue="Application.SpringbootWeb01Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4769d1c1-3b6d-423e-8f6d-03013a9f85d1" name="Changes" comment="" />
+      <created>1744194850463</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744194850463</updated>
+      <workItem from="1744194851639" duration="26000" />
+      <workItem from="1744194928033" duration="1411000" />
+      <workItem from="1744197613628" duration="191000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
