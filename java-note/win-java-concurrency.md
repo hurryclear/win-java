@@ -59,7 +59,7 @@ medium: https://medium.com/@gathilaharism/happens-before-rules-specified-in-java
 
 # JMM (Java Memory Model)
 
-![image-20250306160017760](win-java-basis-concurrency.assets/image-20250306160017760.png)
+![image-20250306160017760](./assets/win-java-concurrency.assets/image-20250306160017760.png)
 
 - Centeral question: How and when does a write in one thread become visible to a read in another thread?
 - How to safely perform operations between main memory and working memory in a multithreaded environment
@@ -93,7 +93,7 @@ Thread 线程：进程可以细化为线程，它是**一个程序内部的一�
 
 # Thread
 
-![image-20250305130218242](win-java-basis-concurrency.assets/image-20250305130218242.png)
+![image-20250305130218242](win-java-concurrency.assets/image-20250305130218242.png)
 
 ## Create Multi-Threads
 
@@ -137,13 +137,13 @@ Thread 线程：进程可以细化为线程，它是**一个程序内部的一�
 
 ## Life-Cycle of Thread
 
-<img src="win-java-basis-concurrency.assets/image-20221011161516330.png" alt="image-20221011161516330" style="zoom:50%;" />
+<img src="./assets/win-java-concurrency.assets/image-20221011161516330.png" alt="image-20221011161516330" style="zoom:50%;" />
 
 ## States of Thread
 
 > https://javabetter.cn/thread/thread-state-and-method.html
 
-<img src="win-java-basis-concurrency.assets/image-20250305131439971.png" alt="image-20250305131439971" style="zoom:60%;" />
+<img src="./assets/win-java-concurrency.assets/image-20250305131439971.png" alt="image-20250305131439971" style="zoom:60%;" />
 
 - NEW
 
@@ -430,7 +430,7 @@ public static void method2() {
 ### process with chart
 
 1. create Lock Record object - every thread's stack frame will contain one Lock Record - Mark Word of the object will be stored in Lord Record
-   ![image5](win-java-basis-concurrency.assets/image5.png)
+   ![image5](./assets/win-java-concurrency.assets/image5.png)
 
 2. when method1 is executed
 
@@ -438,17 +438,17 @@ public static void method2() {
    - lock record address in Lock Record will exchange with Mark Word in Object through CAS
    - 01: normal or biased locked
    - 00: lightweight locked
-   - ![image6](win-java-basis-concurrency.assets/image6.png)
+   - ![image6](./assets/win-java-concurrency.assets/image6.png)
 
 3. if CAS exchange successful
 
-   - ![image7](win-java-basis-concurrency.assets/image7.png)
+   - ![image7](./assets/win-java-concurrency.assets/image7.png)
 
 4. if could be that CAS failed (two cases)
 
    - case 1: other thread has occupied the lightweight locked of this object, then it means there is complete and it will enter into "锁膨胀"
    - case 2: if this thread execute `synchronized` again ("锁重入"), then another new Lock Record will be added, so you can count times of "锁重入"
-     - ![image8](win-java-basis-concurrency.assets/image8.png)
+     - ![image8](./assets/win-java-concurrency.assets/image8.png)
 
 5. unlock
 
@@ -479,11 +479,11 @@ flowchart LR
 ## 锁膨胀 (lock inflation)
 
 - there is another thread want to have lightweight lock, but it fails because lock record has been recorded with 00
-  - ![image9](win-java-basis-concurrency.assets/image9.png)
+  - ![image9](./assets/win-java-concurrency.assets/image9.png)
 - it enters into lock inflation process
   - Object will get Monitor lock (?) and let Object point to address of heavyweight lock
   - Thread-1 will be added into EntryList of Monitor and enter into state "BLOCKED"
-  - ![image10](win-java-basis-concurrency.assets/image10.png)
+  - ![image10](./assets/win-java-concurrency.assets/image10.png)
 - When Thread-0 wants unlock, it will fail, because Mark Word has been occupied by the address of monitor
 - then it will enter into the process of unlock of heavyweight lock, which is
   - find monitor object by the address of monitor
@@ -495,9 +495,9 @@ flowchart LR
 To improve the performance of heavyweight locks by allowing threads to spin (busy-wait) for a short period instead of immediately getting BLOCKED when a lock is not available.
 
 - spin success
-  ![image11](win-java-basis-concurrency.assets/image11.png)
+  ![image11](./assets/win-java-concurrency.assets/image11.png)
 - spin fails
-  ![image12](win-java-basis-concurrency.assets/image12.png)
+  ![image12](./assets/win-java-concurrency.assets/image12.png)
 
 ## Biased Lock
 
@@ -530,7 +530,7 @@ public static void m3() {
 
 # wait & notify
 
-![image 22](./assets/win-java-basis-concurrency.assets/image-202505-47.png)
+![image 22](./assets/win-java-concurrency.assets/image-202505-47.png)
 
 - Threads in BLOCKED
   - haven't got lock, is in EntryList
@@ -541,3 +541,79 @@ public static void m3() {
   - Thread with owner of the lock invoke `notify()` or `notifyAll()``
   - but WAITING threads will not directly become the owner of the lock
   - they will enter into the EntryList and compete with other threads there
+
+# park & unpark
+
+## features
+
+- Don't have to use with ObjectMonitor (lock object), but `wait`, `notify`, `notifyAll` have to be used with ObjectMonitor/synchronized/lock object 
+- `park` & `unpark` can be used to specific thread, but `notify` and `notifyAll` can't
+- `unpark` can be used before `park`
+
+## principle
+
+- every thread has its own Parker object
+- Parker includes three parts: `counter`, `_cond`, `_mutex`
+- liken:
+  - every thread is traveler
+  - Paker is his backpack
+  - `_cond` is his tent in backpack
+  - `_counter` is food in backpack (0: no food, 1: enough food)
+- `park()`: do I need rest?
+  - if no more food, then I need to go to tent (`_cond`) for rest
+  - if enought food, I just continue to travel
+- `unpark()`: to get more food
+  - if the traveler is resting then wake him up to continue to travel
+  - if it is traveling, then when it invokes `park()` no need to stop because you have enough food
+
+## first park then unpark
+
+
+### park
+
+![image 0](./assets/win-java-concurrency.assets/image-202505-15.png)  
+
+1. `Unsafe.park()`
+2. check `_count`, it is 0 now, then get `_mutex` (互斥锁)
+3. thread enters into `_cond` (tent)
+4. set `_counter`= 0
+
+### unpark
+
+![image 1](./assets/win-java-concurrency.assets/image-202505-59.png)  
+
+1. `Unsafe.unpark()` and set `_counter`=1
+2. wake up Thread-0 in `_cond`
+3. Thread-0 is recovered
+4. set `_counter`=0
+
+## first unpark then park
+
+![image 2](./assets/win-java-concurrency.assets/image-202505-49.png)  
+
+1. `Unsafe.unpark()` and set `_counter`=1
+2. `Unsafe.park()`
+3. `_counter`=1, so the thread will continue to run
+4. set `_counter`=0
+
+# Thread liveness
+
+## Three states
+
+- Active
+  - normal
+- Blocked/Waiting
+  - can't execute for now, but can be recovered
+- Liveness Problems
+  - can't execute and is blocked forever
+
+## Liveness problems
+
+>Dining Philosophers Problem
+
+### Deadlock
+
+### Livelock
+### Starvation
+
+## Dining Philosophers Problem

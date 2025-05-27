@@ -5,88 +5,96 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="733accf6-7c89-4159-8030-3913fca2ef2f" name="Changes" comment="complete first round of collection/map and stream for collection/map">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/CommonMethod1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/CommonMethod2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/CommonMethodJoin1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/CommonMethodJoin2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/StackFramesTest1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/StackFramesTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/SynchronizedTest1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/SynchronizedTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/SynchronizedTest3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/SynchronizedTest4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadExerciseTea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadSecurityClass1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadSecurityExample1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadSecuritySellTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadSecurityVariable1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadSecurityVariable2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadStates1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadTest1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadLivenessDeadlock1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ThreadLivenessLivelock1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyCigaretteStep1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyCigaretteStep2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyCigaretteStep3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyCigaretteStep4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyCigaretteStep5.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/notesWindowViewState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/notesWindowViewState.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/cardplay/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/cardplay/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/cardplay/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/cardplay/CardGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/cardplay/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/cardplay/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/cardplay/cardplay.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/cardplay/cardplay.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/ArrayListTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/ArrayListTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/CollectionConcurrentModification1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/CollectionConcurrentModification1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/CollectionMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/CollectionMovie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/CollectionTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/CollectionTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/CollectionTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/CollectionTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/HashSetTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/HashSetTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/LinkedListTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/LinkedListTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/ListTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/ListTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/SetTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/SetTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collection/TreeSetTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collection/TreeSetTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/collections/VariableArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/collections/VariableArgument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/HashMapTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/HashMapTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/LinkedHashMapTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/LinkedHashMapTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/MapExampleVote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/MapExampleVote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/MapTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/MapTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/MapTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/MapTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/MapTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/MapTraversal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/map/TreeMapTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/map/TreeMapTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/stream/StreamFinalMethodTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/stream/StreamFinalMethodTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/stream/StreamMiddleMethodTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/stream/StreamMiddleMethodTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/stream/StreamTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/stream/StreamTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/stream/StreamTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/stream/StreamTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hurryclear/stream/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collection/stream/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/cardplay/Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/cardplay/CardGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/cardplay/Room$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/cardplay/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/ArrayListTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/CollectionConcurrentModification1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/CollectionMovie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/CollectionTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/CollectionTest2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/CollectionTest2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/HashSetTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/LinkedListTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/ListTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/Movie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/SetTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collection/TreeSetTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/collections/VariableArgument.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/HashMapTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/LinkedHashMapTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/MapExampleVote.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/MapTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/MapTest2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/MapTraversal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/TreeMapTest1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/map/TreeMapTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/stream/StreamFinalMethodTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/stream/StreamMiddleMethodTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/stream/StreamTest1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/stream/StreamTest2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hurryclear/stream/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/concurrency/BiasedLockTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/BiasedLockTest1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/concurrency/MonitorTets1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/MonitorTets1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/concurrency/SleepAndNotifyTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/SleepAndNotifyTest1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyTest0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyTest0.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/WaitAndNotifyTest1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/cardplay/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/cardplay/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/cardplay/CardGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/cardplay/CardGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/cardplay/Room$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/cardplay/Room$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/cardplay/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/cardplay/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/ArrayListTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/ArrayListTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionConcurrentModification1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionConcurrentModification1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionMovie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionMovie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionTest2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionTest2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/CollectionTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/HashSetTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/HashSetTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/LinkedListTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/LinkedListTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/ListTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/ListTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/SetTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/SetTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collection/TreeSetTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collection/TreeSetTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/collections/VariableArgument.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/collections/VariableArgument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/HashMapTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/HashMapTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/LinkedHashMapTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/LinkedHashMapTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/MapExampleVote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/MapExampleVote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/MapTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/MapTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/MapTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/MapTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/MapTraversal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/MapTraversal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/TreeMapTest1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/TreeMapTest1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/map/TreeMapTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/map/TreeMapTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamFinalMethodTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamFinalMethodTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamMiddleMethodTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamMiddleMethodTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/stream/StreamTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collection/stream/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collection/stream/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod2$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethod2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethodJoin1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethodJoin1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethodJoin2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/CommonMethodJoin2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/StackFramesTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/StackFramesTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/StackFramesTest2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/StackFramesTest2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/StackFramesTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/StackFramesTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SubThreadSafe2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SubThreadSafe2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest3$Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest3$Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest4$Number.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest4$Number.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/SynchronizedTest4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadExerciseTea.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadExerciseTea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSafe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSafe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSafe2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSafe2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecurityClass1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecurityClass1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecuritySellTicket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecuritySellTicket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecurityVariable1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecurityVariable1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecurityVariable2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadSecurityVariable2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadStates1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadUnsafe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadUnsafe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/TicketWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/TicketWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PriorityQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/PriorityQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-chart/.$states-of-thread.drawio.bkp" beforeDir="false" afterPath="$PROJECT_DIR$/../java-chart/.$states-of-thread.drawio.bkp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-chart/states-of-thread.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-note/22ws_java_mup1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-note/win-java-concurrency.md" beforeDir="false" afterPath="$PROJECT_DIR$/../java-note/win-java-concurrency.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/hurryclear/SpringbootWeb01Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/collection/SpringbootWeb01Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/hurryclear/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/collection/controller/UserController.java" afterDir="false" />
@@ -121,6 +129,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/notesbook/13.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/notesbook/17.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/notesbook/21.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/notesbook/45.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/notesbook/47.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -139,70 +149,63 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultNoteFileTemplate&quot;: &quot;Empty&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hurjiang/Documents/101_cs_hc/101_cs_code/win-java/java-web/springboot-web-01/src/main/resources/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultNoteFileTemplate": "Empty",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "last_opened_file_path": "/Users/hurjiang/Documents/101_cs_hc/101_cs_code/win-java/java-web/springboot-web-01/src/main/resources/static",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.appearance",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;beansoft.intellij.ide.scratch.LRUPopupBuilderEx$1/Change Language&quot;: [
-      &quot;Markdown&quot;,
-      &quot;JAVA&quot;
+  "keyToStringList": {
+    "beansoft.intellij.ide.scratch.LRUPopupBuilderEx$1/Change Language": [
+      "Markdown",
+      "JAVA"
     ],
-    &quot;beansoft.intellij.ide.scratch.LRUPopupBuilderEx$1/New Note&quot;: [
-      &quot;Markdown&quot;
+    "beansoft.intellij.ide.scratch.LRUPopupBuilderEx$1/New Note": [
+      "Markdown"
     ],
-    &quot;beansoft.intellij.ide.scratch.LRUPopupBuilderEx$3/New Note&quot;: [
-      &quot;md.id&quot;,
-      &quot;java.id&quot;
+    "beansoft.intellij.ide.scratch.LRUPopupBuilderEx$3/New Note": [
+      "md.id",
+      "java.id"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.concurrency" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="CollectionTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.collection.collection.CollectionTest2" />
+    <configuration name="BiasedLockTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.concurrency.BiasedLockTest1" />
       <module name="java-basis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.collection.collection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SynchronizedTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.concurrency.SynchronizedTest2" />
-      <module name="java-basis" />
+      <option name="VM_PARAMETERS" value="-XX:BiasedLockingStartupDelay=0" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.concurrency.*" />
@@ -240,12 +243,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringbootWeb01Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="springboot-web-01" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.collection.SpringbootWeb01Application" />
+    <configuration name="WaitAndNotifyTest0" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.concurrency.WaitAndNotifyTest0" />
+      <module name="java-basis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.collection.*" />
+          <option name="PATTERN" value="com.concurrency.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="concurrency" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="MAIN_CLASS_NAME" value="com.concurrency.WaitAndNotifyTest1" />
+      <module name="java-basis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.concurrency.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -254,19 +271,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.SynchronizedTest2" />
+      <item itemvalue="Application.WaitAndNotifyTest0" />
+      <item itemvalue="Application.concurrency" />
+      <item itemvalue="Application.BiasedLockTest1" />
       <item itemvalue="Application.ThreadSecurityVariable1" />
-      <item itemvalue="Application.CollectionTest2" />
       <item itemvalue="Application.ThreadTest1" />
-      <item itemvalue="Spring Boot.SpringbootWeb01Application" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WaitAndNotifyTest0" />
+        <item itemvalue="Application.concurrency" />
+        <item itemvalue="Application.BiasedLockTest1" />
         <item itemvalue="Application.ThreadSecurityVariable1" />
-        <item itemvalue="Application.SynchronizedTest2" />
         <item itemvalue="Application.ThreadTest1" />
-        <item itemvalue="Application.CollectionTest2" />
-        <item itemvalue="Spring Boot.SpringbootWeb01Application" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +315,10 @@
       <workItem from="1747308845411" duration="10310000" />
       <workItem from="1747325763993" duration="71000" />
       <workItem from="1747383963978" duration="43192000" />
-      <workItem from="1747756339631" duration="14477000" />
+      <workItem from="1747756339631" duration="15789000" />
+      <workItem from="1747905694551" duration="1727000" />
+      <workItem from="1747994334836" duration="10342000" />
+      <workItem from="1748245875610" duration="10661000" />
     </task>
     <task id="LOCAL-00001" summary="complete first round of collection/map and stream for collection/map">
       <option name="closed" value="true" />
