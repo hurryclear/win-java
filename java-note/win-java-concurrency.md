@@ -1,5 +1,7 @@
 # Computer Architectur
 
+## instructions reordering
+
 > **Instructions Reordering**
 >
 > **什么是指令重排序** 简单来说就是系统在执行代码的时候并不一定是按照你写的代码的顺序依次执行。
@@ -37,25 +39,6 @@
     -
 - Ordering: The JMM permits certain **optimizations** and **reorderings** by the compiler/JVM/runtime _as long as_ the end result is **semantically consistent**
   - because of instruction reordering
-
-# happens-before Principle
-
-> happens-before 原则表达的意义其实并不是一个操作发生在另外一个操作的前面，虽然这从程序员的角度上来说也并无大碍。更准确地来说，它更想表达的意义是前一个操作的结果对于后一个操作是可见的，无论这两个操作是否在同一个线程里。
->
-> ---
->
-> 著作权归 JavaGuide(javaguide.cn)所有 基于 MIT 协议 原文链接：https://javaguide.cn/java/concurrent/jmm.html
-
-> **为什么需要 happens-before 原则？** happens-before 原则的诞生是为了程序员和编译器、处理器之间的平衡。程序员追求的是易于理解和编程的强内存模型，遵守既定规则编码即可。编译器和处理器追求的是较少约束的弱内存模型，让它们尽己所能地去优化性能，让性能最大化。happens-before 原则的设计思想其实非常简单：
->
-> - 为了对编译器和处理器的约束尽可能少，只要不改变程序的执行结果（单线程程序和正确执行的多线程程序），编译器和处理器怎么进行重排序优化都行。
-> - 对于会改变程序执行结果的重排序，JMM 要求编译器和处理器必须禁止这种重排序。
->
-> ---
->
-> 著作权归 JavaGuide(javaguide.cn)所有 基于 MIT 协议 原文链接：https://javaguide.cn/java/concurrent/jmm.html
-
-medium: https://medium.com/@gathilaharism/happens-before-rules-specified-in-java-memory-model-734ab400170f#:~:text=In%20Java%2C%20the%20Java%20Memory,to%20B%2C%20and%20vice%20versa.
 
 # JMM (Java Memory Model)
 
@@ -546,7 +529,7 @@ public static void m3() {
 
 ## features
 
-- Don't have to use with ObjectMonitor (lock object), but `wait`, `notify`, `notifyAll` have to be used with ObjectMonitor/synchronized/lock object 
+- Don't have to use with ObjectMonitor (lock object), but `wait`, `notify`, `notifyAll` have to be used with ObjectMonitor/synchronized/lock object
 - `park` & `unpark` can be used to specific thread, but `notify` and `notifyAll` can't
 - `unpark` can be used before `park`
 
@@ -568,10 +551,9 @@ public static void m3() {
 
 ## first park then unpark
 
-
 ### park
 
-![image 0](./assets/win-java-concurrency.assets/image-202505-15.png)  
+![image 0](./assets/win-java-concurrency.assets/image-202505-15.png)
 
 1. `Unsafe.park()`
 2. check `_count`, it is 0 now, then get `_mutex` (互斥锁)
@@ -580,7 +562,7 @@ public static void m3() {
 
 ### unpark
 
-![image 1](./assets/win-java-concurrency.assets/image-202505-59.png)  
+![image 1](./assets/win-java-concurrency.assets/image-202505-59.png)
 
 1. `Unsafe.unpark()` and set `_counter`=1
 2. wake up Thread-0 in `_cond`
@@ -589,7 +571,7 @@ public static void m3() {
 
 ## first unpark then park
 
-![image 2](./assets/win-java-concurrency.assets/image-202505-49.png)  
+![image 2](./assets/win-java-concurrency.assets/image-202505-49.png)
 
 1. `Unsafe.unpark()` and set `_counter`=1
 2. `Unsafe.park()`
@@ -609,11 +591,409 @@ public static void m3() {
 
 ## Liveness problems
 
->Dining Philosophers Problem
+> Dining Philosophers Problem
 
 ### Deadlock
 
 ### Livelock
+
 ### Starvation
 
+- a thread with low priority can't be executed by CPU (can't get time-slicing from CPU)
+
 ## Dining Philosophers Problem
+
+# ReentrantLock
+
+![image 3](./assets/win-java-concurrency.assets/image-202505-12.png)
+
+# 3 principles
+
+## visibility
+
+```java
+public class VisibilityProblemTest1 {
+
+    private static final Logger log = LoggerFactory.getLogger(VisibilityProblemTest1.class);
+
+    static boolean run = true;
+
+    public static void main(String[] args) throws InterruptedException{
+        Thread t = new Thread(() -> {
+            while (run) {
+                log.debug("running...");
+            }
+        });
+        t.start();
+
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            log.debug("exception");
+        }
+        log.debug("stop t");
+        run = false;
+    }
+}
+```
+
+### Problem
+
+1. `run` will be stored in main storage
+   - from the beginning when thread t wants to load `run`, it goes to main storage to get `run`
+   - ![image 4](./assets/win-java-concurrency.assets/image-202506-11.png)
+2. in our program we have `while(run)`, so every time it is true, thread t needs to read `run` from main storage again but this is not efficient
+3. in order to improve the efficiency, JIT compiler in java will "move" `run` to the working storge of thread t
+   - ![image 5](./assets/win-java-concurrency.assets/image-202506-56.png)
+   - thread t doesn't need to read `run` from main storage
+   - it's more efficient to read `run` from working storage of t
+4. but after 1s main thread change the value of `run` to "false"
+   - thread main changed the `run` but thread t doesn't know it, the value of `run` in thread t is still "true"
+   - the problem occurs (visibility): the new value of `run` is not visible for thread t
+   - ![image 6](./assets/win-java-concurrency.assets/image-202506-48.png)
+
+### Solution
+
+- `volatile`
+  - can be used to modify _member variable_ and _static member_ variable
+  - force thread to read from main storage not working storage
+
+```java
+public class VisibilityProblemTest1 {
+
+    private static final Logger log = LoggerFactory.getLogger(VisibilityProblemTest1.class);
+
+    // add volatile to run, it will force thread to read the value of run alway from main storage not from working storage
+    volatile static boolean run = true;
+
+    public static void main(String[] args) throws InterruptedException{
+        Thread t = new Thread(() -> {
+            while (run) {
+                log.debug("running...");
+            }
+        });
+        t.start();
+
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            log.debug("exception");
+        }
+        log.debug("stop t");
+        run = false;
+    }
+}
+```
+
+- `synchronized`
+  - can also be used to ensure visibility
+  - but it's too heavy, so `volatile` is more recommended
+
+```java
+public class VisibilityProblemTest1 {
+
+    private static final Logger log = LoggerFactory.getLogger(VisibilityProblemTest1.class);
+    static boolean run = true;
+    final static Object lock = new Object();
+
+    public static void main(String[] args) throws InterruptedException{
+        Thread t = new Thread(() -> {
+            synchronized(lock) {
+                while (run) {
+                    log.debug("running...");
+                }
+            }
+        });
+        t.start();
+
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            log.debug("exception");
+        }
+        log.debug("stop t");
+        run = false;
+    }
+}
+```
+
+## atomicity
+
+- ensure that the instructions will not be reordered (JMM)
+-
+
+
+# `volatile` keyword
+
+## scenario
+
+- only for visibility not for atomicity
+- write one thread and read multiple thread
+- can't solve <u>instruction mixed problem</u>
+
+## principle
+
+- memory barrier / memory fence
+- `sfence`(store-fence) and `lfence` (load-fence)
+- `Unsafe` class provides 3 methods
+
+```java
+
+```
+
+### sfence (store/write-fence)
+
+```java
+// ready is a volatile variable
+public void actor2 (I_Result r) {
+  num = 2;
+  ready = true;
+  // sfence
+}
+```
+
+- after the volatile variable change the value, there will be sfence right after that, to ensure that the vallue of that volatile variable will be shared in the main storage not just in working storage of the thread
+- ordering: ensure the instructions before sfence will not be reordered after sfence
+
+### lfence (load/read-fence)
+
+```java
+public void actor1(I_Rresult r) {
+  // lfence
+  if(ready) {
+    r.r1 = num + num;
+  } else {
+    r.r1 = 1;
+  }
+}
+```
+
+- lfence before the reading of the volatile variable
+- to ensure that the thread will read the value of the volatile variable in the main storage
+- ordering: ensure the instructions after lfence will not be reordered before lfence
+
+```mermaid
+sequenceDiagram
+participant t1 as thread t1
+participant num as num=0
+participant ready as volatile ready=false
+participant t2 as thread t2
+t1 -->> t1 : num=2
+t1 ->> ready : ready=true
+Note over t1, ready: sfence
+Note over num,t2: lfence
+t2 ->> ready : read ready=true
+t2 ->> num : read num=2
+```
+
+## visibiliy of variable
+
+![image 6](./assets/win-java-concurrency.assets/image-202506-48.png)
+
+- a variable is modified with `volatile` means that to JVM this variable is unstable and shared, instead of read it from the working storage of the thread, JVM has to read it always, everytime from main storage
+
+## How to disable instructions reordering?
+
+- double-checked locking singleton design pattern
+  - syncrhonize when first time visit, then no synchronized
+
+```java
+public class Singleton {
+
+  private volatile static Singletn uniqueInstance;
+  private Singleton() {}
+
+  public static Singleton getUniqueInstance() {
+    // has object been instanized?
+    if (uniqueInstance == null) {
+      // object lock
+      synchronized (Singleton.class) { // equals: synchronized the getUniqueInstance method
+        if (uniqueInstance == null) {
+          uniqueInstance = new Singleton();
+        }
+      }
+      return uniqueInstance;
+    }
+  }
+}
+```
+
+- there are three steps within `uniqueInstance = new Singleton();`
+
+  1. assign storage to `uniqueInstance`
+  2. initialize `uniqueInstance`
+  3. link `uniqueInstance` to the assigned storage address
+
+- why is adding `synchronized` is important?
+  - JVM has instructions reordering features
+  - insturctions within `uniqueInstance = new Singleton();` could be reordered if there are multiple threads
+
+## Does `volatile` guarantee atomicity?
+
+```java
+/**
+ * @author Guide哥
+ * @date 2022/08/03 13:40
+ **/
+public class VolatileAtomicityDemo {
+    public volatile static int inc = 0;
+
+    public void increase() {
+        inc++;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService threadPool = Executors.newFixedThreadPool(5);
+        VolatileAtomicityDemo volatileAtomicityDemo = new VolatileAtomicityDemo();
+        for (int i = 0; i < 5; i++) {
+            threadPool.execute(() -> {
+                for (int j = 0; j < 500; j++) {
+                    volatileAtomicityDemo.increase();
+                }
+            });
+        }
+        // 等待1.5秒，保证上面程序执行完成
+        Thread.sleep(1500);
+        System.out.println(inc);
+        threadPool.shutdown();
+    }
+}
+```
+
+- `inc++` is not atomic
+  1. read inc
+  2. inc + 1
+  3. write new inc back to storage
+- `inc` is modified with `volatile`, but it can't ensure atomicity
+- we can use `synchronized`, `Lock` or `AtomicInteger`
+
+  - `synchronized`
+
+  ```java
+  public synchronized void increase() {
+      inc++;
+  }
+  ```
+
+  - `AtomicInteger`
+
+  ```java
+  public AtomicInteger inc = new AtomicInteger();
+
+  public void increase() {
+      inc.getAndIncrement();
+  }
+  ```
+
+  - `ReentrantLock`
+
+  ```java
+  Lock lock = new ReentrantLock();
+  public void increase() {
+      lock.lock();
+      try {
+          inc++;
+      } finally {
+          lock.unlock();
+      }
+  }
+  ```
+
+# happens-before principle
+
+- write-operation of a shared variable is visible to read-operation of other threads
+- happens-before 原则表达的意义其实并不是一个操作发生在另外一个操作的前面，虽然这从程序员的角度上来说也并无大碍。更准确地来说，它更想表达的意义是前一个操作的结果对于后一个操作是可见的，无论这两个操作是否在同一个线程里。(JavaGuide)
+
+> **why do we need happens-before principle?** happens-before 原则的诞生是为了程序员和编译器、处理器之间的平衡。程序员追求的是易于理解和编程的强内存模型，遵守既定规则编码即可。编译器和处理器追求的是较少约束的弱内存模型，让它们尽己所能地去优化性能，让性能最大化。happens-before 原则的设计思想其实非常简单：
+>
+> - 为了对编译器和处理器的约束尽可能少，只要不改变程序的执行结果（单线程程序和正确执行的多线程程序），编译器和处理器怎么进行重排序优化都行。
+> - 对于会改变程序执行结果的重排序，JMM 要求编译器和处理器必须禁止这种重排序。
+>
+> ---
+>
+> 著作权归 JavaGuide(javaguide.cn)所有 基于 MIT 协议 原文链接：https://javaguide.cn/java/concurrent/jmm.html
+
+medium: https://medium.com/@gathilaharism/happens-before-rules-specified-in-java-memory-model-734ab400170f#:~:text=In%20Java%2C%20the%20Java%20Memory,to%20B%2C%20and%20vice%20versa.
+
+## regulation 1
+
+- the write-operation in t1 is visible for read-operation in t2
+- acheive through `synchronized`
+
+```java
+static int x;
+static Object m = new Object();
+
+new Thread (() -> {
+  syncrhonized(m) {
+    x = 10;
+  }
+}, "t1").start();
+
+new Thread (() -> {
+  syncrhonized(m) {
+    System.out.println(x);
+  }
+}, "t2").start();
+```
+
+## regulation 2
+
+- the write-operation in volatile variable is visible to the read-operation of other threads
+
+```java
+volatile static int x;
+
+new Thread(() -> {
+  x = 10;
+}, "t1").start();
+
+new Thread(() -> {
+  System.out.println(x);
+},"t2").start();
+```
+
+## regulation 3
+
+- the write-operation before the start of the thread is visible to the read-operation after the thread start
+
+```java
+static int x;
+
+x = 10;
+
+new Thread(() -> {
+  System.out.println(x);
+}, "t1").start();
+
+```
+
+## regulation 4
+
+- other threads can know the result of the thread once the thread ends
+
+```java
+static int x;
+
+Thread t1 = new Thread(() -> {
+  x = 10;
+}, "t1");
+t1.start();
+
+t1.join();
+System.out.println(x);
+```
+
+- main thread needs to wait until t1 ends, so the result of t1 is visible for main thread
+
+## regulation 5
+
+![image 8](./assets/win-java-concurrency.assets/image-202506-06.png)
+
+## regulation 6
+
+- default value (0, false, null) is visible to other threads
+
+## regulation 7
+
+![image 7](./assets/win-java-concurrency.assets/image-202506-33.png)

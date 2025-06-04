@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="733accf6-7c89-4159-8030-3913fca2ef2f" name="Changes" comment="complete first round of collection/map and stream for collection/map">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ReentrantLockCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ReentrantLockReenterable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/ReentrantLockTryLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/VisibilityProblemTest1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/dinningphil/Chopstick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/dinningphil/DiningPhilosophersProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/concurrency/dinningphil/Philosopher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/notesWindowViewState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/notesWindowViewState.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadLivenessDeadlock1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadLivenessDeadlock1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadLivenessLivelock1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/ThreadLivenessLivelock1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/concurrency/WaitAndNotifyCigaretteStep5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-note/assets/win-java-basis.assets/image-20250303171758150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-note/win-java-basis.md" beforeDir="false" afterPath="$PROJECT_DIR$/../java-note/win-java-basis.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-note/win-java-concurrency.md" beforeDir="false" afterPath="$PROJECT_DIR$/../java-note/win-java-concurrency.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/hurryclear/SpringbootWeb01Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/collection/SpringbootWeb01Application.java" afterDir="false" />
@@ -127,7 +114,7 @@
       <recent name="com.concurrency" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.WaitAndNotifyTest0">
     <configuration name="BiasedLockTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -249,6 +236,8 @@
       <workItem from="1748245875610" duration="19594000" />
       <workItem from="1748597454008" duration="1032000" />
       <workItem from="1748690525278" duration="31000" />
+      <workItem from="1748953394112" duration="2596000" />
+      <workItem from="1749020825402" duration="1817000" />
     </task>
     <task id="LOCAL-00001" summary="complete first round of collection/map and stream for collection/map">
       <option name="closed" value="true" />
