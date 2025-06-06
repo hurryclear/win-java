@@ -631,6 +631,8 @@ public static void main(String[] args) {
 
 # IO Model: BIO
 
+> https://javaguide.cn/java/io/io-model.html
+
 - BIO: Blocking I/O
 
 # IO Model: NIO
