@@ -305,12 +305,16 @@ why?
 
 ## 1.2 Set
 
-- unordered, no duplication, unindexed
-  - unordered access / ungeordneter Zugriff
-  - can not store duplicate elements / keine Duplikate
-  - not access through index / kein Zugriff über Index
+- unordered, no duplication, unindex
+    - unordered access / ungeordneter Zugriff
+    - can not store duplicate elements / keine Duplikate
+    - not access through index / kein Zugriff über Index
 
 - is implemented with Map (HashMap, LinkedHashMap, TreeMap), because the key in Map is unique
+    - HashSet <== HashMap
+    - LinkedHashSet <== LinkedHashMap
+    - TreeSet <== TreeMap
+    
 
 |               | order | duplication | index | sort |
 | ------------- | ----- | ----------- | ----- | ---- |
@@ -320,15 +324,16 @@ why?
 
 
 
-### HashSet
+### 1.2.1 HashSet
 
-#### feature
+#### 1.2.1.1 feature
 
-- unordered
-- no duplication
-- no index
+- unordered, no duplication, no index
+- not common to use in the project 
+    - store elements in order ==> ArrayList or LinkedList
+    - key-value ==> HashMap
 
-#### underlying implementation
+#### 1.2.1.2 data structure
 
 - Hash value (of the object) and Hash table
 
@@ -336,11 +341,11 @@ why?
 
 - array + linked list (before JDK 8)
 
-    <img src="assets/win-java-basis.assets/image-20250415231721386.png" alt="image-20250415231721386" style="zoom:50%;" />
+    <img src="assets/win-java-collection.assets/image-20250415231721386.png" alt="image-20250415231721386" style="zoom:50%;" />
 
     - array + linked list + red-black tree (after JDK 8)
 
-    <img src="assets/win-java-basis.assets/image-20250415231752748.png" alt="image-20250415231752748" style="zoom:50%;" />
+    <img src="assets/win-java-collection.assets/image-20250415231752748.png" alt="image-20250415231752748" style="zoom:50%;" />
 
 - CRUD
 - HashSet is mainly used to remove duplicates, e.g. we need to count how many non-repeating words in an article, we can use HashSet to realize --> why can HashSet implement this? because of HashMap
@@ -358,7 +363,7 @@ System.out.println(stringHashSet.size()); // 2, why?
 
 - HashSet is implemented with HashMap. The key in HashMap is unique, when you add "jiang" second time, it will cover the first "jiang" ("jiang" is key)
 
-#### src
+#### 1.2.1.3 source code
 
 - implement through HashMap (see source code)
 
@@ -398,7 +403,7 @@ public boolean add(E e) {
 }
 ```
 
-### LinkedHashSet
+### 1.2.2 LinkedHashSet
 
 - based on hash table (array, linked list, red-black tree)
   - add double linked list to record the previous and exceed node of the current node
@@ -406,7 +411,7 @@ public boolean add(E e) {
 
 - implemented with LinkedHashMap
 
-### TreeSet
+### 1.2.3 TreeSet
 
 - implementing class of interface SortedSet
 
