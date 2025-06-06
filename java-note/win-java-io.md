@@ -43,6 +43,9 @@
   - [Serializable Stream](#serializable-stream)
 - [IO Framework](#io-framework)
   - [commons-io](#commons-io)
+- [IO Model: BIO](#io-model-bio)
+- [IO Model: NIO](#io-model-nio)
+- [IO Model: AIO](#io-model-aio)
 
 <!-- /code_chunk_output -->
 
@@ -626,3 +629,14 @@ public static void main(String[] args) {
 - from apache
 - ![image 2](./assets/win-java-io.assets/commonsio-202506-26.png)  
 
+# IO Model: BIO
+
+- BIO: Blocking I/O
+
+# IO Model: NIO
+
+- NIO: Non-blocking I/O
+
+# IO Model: AIO
+
+- AIO: Asynchronous I/O
