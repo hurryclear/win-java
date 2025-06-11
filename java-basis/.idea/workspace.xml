@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="733accf6-7c89-4159-8030-3913fca2ef2f" name="Changes" comment="complete first round of collection/map and stream for collection/map">
-      <change beforePath="$PROJECT_DIR$/.idea/notesWindowViewState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/notesWindowViewState.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-note/assets/win-java-basis.assets/image-20250303171758150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-note/win-java-basis.md" beforeDir="false" afterPath="$PROJECT_DIR$/../java-note/win-java-basis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-note/win-java-concurrency.md" beforeDir="false" afterPath="$PROJECT_DIR$/../java-note/win-java-concurrency.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/hurryclear/SpringbootWeb01Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/collection/SpringbootWeb01Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/hurryclear/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web/springboot-web-01/src/main/java/com/collection/controller/UserController.java" afterDir="false" />
@@ -238,6 +233,7 @@
       <workItem from="1748690525278" duration="31000" />
       <workItem from="1748953394112" duration="2596000" />
       <workItem from="1749020825402" duration="1817000" />
+      <workItem from="1749207114649" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="complete first round of collection/map and stream for collection/map">
       <option name="closed" value="true" />

@@ -2,6 +2,8 @@
 
 ## instructions reordering
 
+> [!NOTE]
+>
 > **Instructions Reordering**
 >
 > **什么是指令重排序** 简单来说就是系统在执行代码的时候并不一定是按照你写的代码的顺序依次执行。
@@ -76,7 +78,7 @@ Thread 线程：进程可以细化为线程，它是**一个程序内部的一�
 
 # Thread
 
-![image-20250305130218242](win-java-concurrency.assets/image-20250305130218242.png)
+![image-20250305130218242](./assets/win-java-concurrency.assets/image-20250305130218242.png)
 
 ## Create Multi-Threads
 
@@ -295,7 +297,7 @@ Thread 线程：进程可以细化为线程，它是**一个程序内部的一�
   </tr>
 </table>
 
-## Monitor (OS)
+## Monitor (OS) 
 
 ```mermaid
 flowchart LR
@@ -484,6 +486,7 @@ To improve the performance of heavyweight locks by allowing threads to spin (bus
 
 ## Biased Lock
 
+> [!NOTE]
 > removed since Java 15
 > so it's maybe not that important for now
 
@@ -879,7 +882,7 @@ public class VolatileAtomicityDemo {
 
   ```java
   public AtomicInteger inc = new AtomicInteger();
-
+  
   public void increase() {
       inc.getAndIncrement();
   }
