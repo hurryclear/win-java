@@ -38,13 +38,14 @@ public class CollectionTest2 {
         System.out.println(testCollection.toArray());
 
 
-        /*
-            - Traversal
-                1. Iterator
-                2. for-each
-                  - (String s : c2) {}
-                  - shortcut: c2.for enter
-                3. Lambda
+        /**
+         * 
+         *   - Traversal
+         *       1. Iterator
+         *       2. for-each
+         *           - (String s : c2) {}
+         *           - shortcut: c2.for enter
+         *       3. Lambda
          */
         Collection<String> c2 = new ArrayList<>();
         c2.add("a");

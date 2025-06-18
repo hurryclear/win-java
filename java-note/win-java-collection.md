@@ -81,12 +81,12 @@
 
 ## 1.0 Collection
 
-### features
+### 1.0.1 Features
 
 - no order
 - element can be repeated
 
-### Common method
+### 1.0.2 Common method
 
 - `public boolean add (E e)`
 - `public boolean addAll(Collection<? extends E> c)`
@@ -97,7 +97,9 @@
 - `public int size()`
 - `public Object[] toArray()`
 
-### Traversal
+### 1.0.3 Traversal
+
+
 
 - iterator
 - for
@@ -107,11 +109,11 @@
 
 ### 1.1.0 List Interface
 
-#### feature
+#### 1.1.0.1 Feature
 
 - ordered, repeatable, indexed
 
-#### common method
+#### 1.1.0.2 Common method
 
 | method                          | describtion |
 | ------------------------------- | ----------- |
@@ -120,14 +122,27 @@
 | E set (int index, E element)    |             |
 | E get (int index)               |             |
 
+#### 1.1.0.3 List summary
 
+| a                                | Length/Size                                                  | Data Type         | Generics | API                      | safe threads                  | Data Structure     | useful? |
+| -------------------------------- | ------------------------------------------------------------ | ----------------- | -------- | ------------------------ | ----------------------------- | ------------------ | ------- |
+| Array                            | 1. fixed with initial<br />2. can't change                   | primitive/wrapper | 0        | 0                        |                               |                    |         |
+| ArrayList<br />--> dynamic array | expansion mechanism: `ensureCapacity()`                      | wrapper           | 1        | 1. random accessible     | 0                             | `Object[]`         | 1       |
+| LinkedList                       |                                                              |                   |          | 1. not random accessible | 0                             | double linked list | 0       |
+| Vector                           | Vector is a old-fashioned List implementation, underlying data structure is `Object[]` |                   |          |                          | 1 <br />(with `synchronized`) | `Object[]`         | 0       |
+| Stack                            |                                                              |                   |          |                          |                               |                    | 0       |
 
 ### 1.1.1 ArrayList
 
 > Details please look into the analysis of <u>source code</u> in [JavaGuide](https://javaguide.cn/java/collection/arraylist-source-code.html#arraylist-核心源码解读) 
 > I started to write my own notes from the note from JavaGuide and then add my own consideration. I did translation as well because JavaGuide is only written in chinese
 
+#### 1.1.1.0 One sentence intro
+
+A dynamic array with ordered, repeatable, indexed features.
+
 #### 1.1.1.1 Interface, Inheritance
+
 <img src="assets/win-java-collection.assets/image-20250303171758150.png" alt="image-20250303171758150" style="zoom:80%;" />
 
 - extends and implements
@@ -154,9 +169,10 @@
     - add, delete element ==> very slow
 - capacity is dynamic
 - generic supported
-- only Objects can be stored (wrapper, no primitive)
+- only wrapper data, no primitive data
 - no need to assign the length when create
 - `null` supported, but meaningless, better don't use
+  
     ```java
     ArrayList<String> listOfString = new ArrayList<>();
     listOfString.add(null);
@@ -235,8 +251,12 @@ why?
     ```
 
 - add
+  
+    - `add()` ==> `ensureCapacityInternal()` ==> `ensureExplicitCapacity(calculateCapacity())`
+    
     ```java
     // add element from the tail
+    // from outer to the inner
     public boolean add(E e) {
         // 1. invoke ensureCapacityInternal method before add elements
         ensureCapacityInternal(size + 1);  // Increments modCount!!
@@ -244,24 +264,13 @@ why?
         elementData[size++] = e;
         return true;
     }
-
+    
     // 2. ensure that internal capacity reach to min. capacity
     private void ensureCapacityInternal(int minCapacity) {
         ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
     }
-
-    // 2.1 calculate how large the capacity it need, it returns min. capacity
-    private static int calculateCapacity(Object[] elementData, int minCapacity) {
-        // 如果当前数组元素为空数组（初始情况），返回默认容量和最小容量中的较大值作为所需容量
-        // if it is empty array, return max. among default capacity (10) and min. capacity
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
-            return Math.max(DEFAULT_CAPACITY, minCapacity);
-        }
-        // otherwise return minCapacity directly
-        return minCapacity;
-    }
-
-    // 2.2 check if enlarge capacity is needed
+    
+    // 3. check if enlarge capacity is needed
     private void ensureExplicitCapacity(int minCapacity) {
         modCount++;
         // 2.2.1 is the capacity of the current array enough to store minCapacity elements
@@ -271,16 +280,27 @@ why?
             // enlarge capacity by invoking grow() method
             grow(minCapacity);
     }
+    
+    // 4. calculate how large the capacity it need, it returns min. capacity
+    private static int calculateCapacity(Object[] elementData, int minCapacity) {
+        // 如果当前数组元素为空数组（初始情况），返回默认容量和最小容量中的较大值作为所需容量
+        // if it is empty array, return max. among default capacity (10) and min. capacity
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+            return Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+        // otherwise return minCapacity directly
+        return minCapacity;
+    }
     ```
-
+    
 - grow: core method to enlarge capacity
-    - every time after capacity enlarge the new capacity of the ArrayList will become 1.5 times of the old capacity
+    - ==every time after capacity enlarge the new capacity of the ArrayList will become 1.5 times of the old capacity==
     ```java
     /**
     * 要分配的最大数组大小???
     */
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
-
+    
     /**
     * core method for ArrayList to enlarge capacity
     */
@@ -290,16 +310,16 @@ why?
         // 将oldCapacity 右移一位，其效果相当于oldCapacity /2，
         // 我们知道位运算的速度远远快于整除运算，整句运算式的结果就是将新容量更新为旧容量的1.5倍，
         int newCapacity = oldCapacity + (oldCapacity >> 1);
-
+    
         // 然后检查新容量是否大于最小需要容量，若还是小于最小需要容量，那么就把最小需要容量当作数组的新容量，
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
-
+    
         // 如果新容量大于 MAX_ARRAY_SIZE,进入(执行) `hugeCapacity()` 方法来比较 minCapacity 和 MAX_ARRAY_SIZE，
         // 如果minCapacity大于最大容量，则新容量则为`Integer.MAX_VALUE`，否则，新容量大小则为 MAX_ARRAY_SIZE 即为 `Integer.MAX_VALUE - 8`。
         if (newCapacity - MAX_ARRAY_SIZE > 0)
             newCapacity = hugeCapacity(minCapacity);
-
+    
         // minCapacity is usually close to size, so this is a win:
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
@@ -307,13 +327,15 @@ why?
 
 #### 1.1.1.5 fail-fast, fail-safe
 
+- About concurrency
+
 > Fail-fast systems are designed to immediately stop functioning upon encountering an unexpected condition. This immediate failure helps to catch errors early, making debugging more straightforward.
 >
 > ------
 >
 > 著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/collection/java-collection-questions-01.html
 
-#### 1.1.1.6 ArrayList vs. LinkedList
+
 
 ### 1.1.2 LinkedList
 
@@ -345,13 +367,13 @@ why?
     <img src="assets/win-java-collection.assets/image-20250414154726484.png" alt="image-20250414154726484" style="zoom:80%;" />
 
 
-### ArrayList vs. LinkedList
+### 1.1.3 ArrayList vs. LinkedList
 
 | a                         | ArrayList                                                    | LinkedList                                   |
 | ------------------------- | ------------------------------------------------------------ | -------------------------------------------- |
 | thread-safe               | no                                                           | no                                           |
 | underlying data structure | Object array                                                 | double linked list                           |
-| fast random access        | no                                                           | yes, because of RandomAccess interface       |
+| fast random access        | yes, because of RandomAccess interface                       | no                                           |
 | memory space consumption  | a certain amount of space is reserved at the end of the list | need to store the previous and next pointers |
 
 - RandomAccess
@@ -364,19 +386,7 @@ why?
     ```
 
     - a marker interface (doesn't have concrete function)
-    ArrayList implements the RandomAccess interface, while LinkedList does not. Why is that? I think it still has to do with the underlying data structure! The base of ArrayList is an array, while the base of LinkedList is a linked list. Arrays naturally support random access, the time complexity is O(1), so it is called fast random access. Linked lists must be traversed to a specific location to access the elements at a specific location, the time complexity is O(n), so it does not support fast random access.ArrayList implements the RandomAccess interface, which indicates that it has fast random access. The RandomAccess interface is just an identifier, it doesn't mean that ArrayList has fast random access only if it implements the RandomAccess interface!
-
-
-
-### List Summary
-
-| a                                | Length/Size                                | Data Type         | Generics | API                      | safe threads            | Data Structure     | useful? |
-| -------------------------------- | ------------------------------------------ | ----------------- | -------- | ------------------------ | ----------------------- | ------------------ | ------- |
-| Array                            | 1. fixed with initial<br />2. can't change | primitive/wrapper | 0        | 0                        |                         |                    |         |
-| ArrayList<br />--> dynamic array | expansion mechanism: `ensureCapacity()`    | wrapper           | 1        | 1. random accessible     | 0                       | `Object[]`         | 1       |
-| LinkedList                       |                                            |                   |          | 1. not random accessible | 0                       | double linked list | 0       |
-| Vector                           |                                            |                   |          |                          | 1 (with `synchronized`) | `Object[]`         | 0       |
-| Stack                            |                                            |                   |          |                          |                         |                    | 0       |
+    <u>ArrayList implements the RandomAccess interface, while LinkedList does not.</u> Why is that? I think it still has to do with the underlying data structure! The base of ArrayList is an array, while the base of LinkedList is a linked list. Arrays naturally support random access, the time complexity is O(1), so it is called fast random access. Linked lists must be traversed to a specific location to access the elements at a specific location, the time complexity is O(n), so it does not support fast random access.ArrayList implements the RandomAccess interface, which indicates that it has fast random access. The RandomAccess interface is just an identifier, it doesn't mean that ArrayList has fast random access only if it implements the RandomAccess interface!
 
 ## 1.2 Set
 
@@ -670,7 +680,7 @@ public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneabl
     4. if it's same then override, if not, store the new element in the linked list from this index position
 
 - When will the linked list be turned to red-black tree?
-![image 4](./assets/win-java-collection.assets/image-202506-39.png)  
+  ![image 4](./assets/win-java-collection.assets/image-202506-39.png)  
     - the length of the linked table greater than 8 (by default) and the length of array is greater than 64
         - if the length of array is smaller than 64, then it will enlarge the capacity by double (28 ==> 56)
     - red-black tree is not efficient, so better not use it directly
@@ -706,7 +716,7 @@ public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneabl
                     resize();
                 // if not, then transfer linked table to red-black tree 
                 else if ((e = tab[index = (n - 1) & hash]) != null) {
-
+            
                     TreeNode<K,V> hd = null, tl = null;
                     do {
                         TreeNode<K,V> p = replacementTreeNode(e, null);
@@ -1107,7 +1117,7 @@ public class HashMapTest {
         public HashMap(int initialCapacity) {
             this(initialCapacity, DEFAULT_LOAD_FACTOR);
         }
-
+        
         /**
         * Returns a power of two size for the given target capacity.
         */
@@ -1215,15 +1225,15 @@ boolean evict) {
     ```java
     public class Person {
         private Integer age;
-
+    
         public Person(Integer age) {
             this.age = age;
         }
-
+    
         public Integer getAge() {
             return age;
         }
-
+    
         // alias class ==> Comparator
         public static void main(String[] args) {
             TreeMap<Person, String> treeMap = new TreeMap<>(new Comparator<Person>() {
@@ -1242,7 +1252,7 @@ boolean evict) {
             });
         }
     }
-
+    
     // or with lambda
     TreeMap<Person, String> treeMap = new TreeMap<>((person1, person2) -> {
         int num = person1.getAge() - person2.getAge();

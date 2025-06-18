@@ -1,3 +1,6 @@
 java-basis/.idea
 java-basis/.vscode
-java-basis/target/
+java-chart/*.$*
+java-web/springboot-web-01/target/
+java-web/*.$*
+**/target/
