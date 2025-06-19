@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.function.Consumer;
 
-public class CollectionTest2 {
+public class CollectionTraversal {
 
     public static void main(String[] args) {
 
@@ -47,50 +47,73 @@ public class CollectionTest2 {
          *           - shortcut: c2.for enter
          *       3. Lambda
          */
-        Collection<String> c2 = new ArrayList<>();
-        c2.add("a");
-        c2.add("b");
-        c2.add("c");
-        c2.add("d");
-        System.out.println(c2); // what is the result?
+        Collection<String> strColl = new ArrayList<>();
+        strColl.add("a");
+        strColl.add("b");
+        strColl.add("c");
+        strColl.add("d");
+        strColl.add("e");
+        strColl.add("f");
+        System.out.println(strColl); // what is the result?
 
 
         // 1. Iterator
         // must be aware of the boundary of the collection, if there are only 4 elements in the collection and you print element "null" after the last element, you will get Exception
+        // 1.1 NoSuchElementException
+        // 1.2 After loop the pointer will not be reset
+        // 1.3 next() can only be used once within loop
+        // 1.4 add() and remove() of Collection can't be used together with Iterator ==> instead, use remove() of Iterator
         System.out.println("===== Traversal: iterator =====");
 
-        Iterator<String> it = c2.iterator();
+        // it ==> like a pointer
+        Iterator<String> it = strColl.iterator();
+        // although the name of the method is hasNext(), it actually means that does the current pointer (it) have element?
+        // if yes it will enter into the while loop
         while(it.hasNext()) {
-
-            System.out.println(it.next());
-
+            // next(): get the element under the current pointer and move the pointer to the next
+            String str = it.next();
+            if (str.equals('c')) {
+                // 1.4
+                it.remove();
+                // strColl.remove(str);
+            }
+            System.out.println(str);
+            // Don't use next() in this way
+            // System.out.println(it.next());
+            // System.out.println(it.next());
         }
+        // 1.1 NoSuchElementException
+        // System.out.println(it.next());
+        System.out.println(strColl);
+
 
         // 2. for-each
-
         System.out.println("===== Traversal: for-each =====");
 
-        for (String s : c2) {
+        for (String s : strColl) {
+            s = "a";
             System.out.println(s);
         }
+        System.out.println(strColl); // [a, b, c, d, e, f], not [a, a, a, a, a, a]
 
         // 3. lambda
+        // 3.1 forEach()
+        // underlying principle: fori, override accept()
         System.out.println("===== Traversal: lambda =====");
-        c2.forEach(new Consumer<String>() {
+        strColl.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {
                 System.out.println(s);
             }
         });
-        // 3.1 simplified
-        c2.forEach((String s) -> {
+        // 3.2 simplified
+        // (parameter of method) -> {method body}
+        strColl.forEach((String s) -> {
             System.out.println(s);
         });
-        // 3.2 simplified
-        c2.forEach(s -> System.out.println(s));
-        // 3.3. simplified
-        c2.forEach(System.out::println);
-
-
+        // 3.3 simplified
+        strColl.forEach(s -> System.out.println(s));
+        // 3.4 simplified
+        strColl.forEach(System.out::println);
     }
 }

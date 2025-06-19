@@ -99,11 +99,98 @@
 
 ### 1.0.3 Traversal
 
+#### 1.0.3.1 iterator
+
+- must be aware of the boundary of the collection, if there are only 4 elements in the collection and you print element "null" after the last element, you will get Exception
+- key methods
+  - `iterator()`
+  - `hasNext()`
+  - `next()` 
+- 4 key points
+  - NoSuchElementException
+  - After loop the pointer will not be reset
+  - `next()` can only be used once within loop
+  - `add()` and `remove()` of Collection can't be used together with Iterator ==> instead, use `remove()` of Iterator
+
+```java
+Collection<String> strColl = new ArrayList<>();
+        strColl.add("a");
+        strColl.add("b");
+        strColl.add("c");
+        strColl.add("d");
+        strColl.add("e");
+        strColl.add("f");
+        System.out.println(strColl); // what is the result?
+
+        // 1. Iterator
+        // 1.1 NoSuchElementException
+        // 1.2 After loop the pointer will not be reset
+        // 1.3 next() can only be used once within loop
+        // 1.4 add() and remove() of Collection can't be used together with Iterator ==> instead, use remove() of Iterator
+        System.out.println("===== Traversal: iterator =====");
+
+        // it ==> like a pointer
+        Iterator<String> it = strColl.iterator();
+        // although the name of the method is hasNext(), it actually means that does the current pointer (it) have element?
+        // if yes it will enter into the while loop
+        while(it.hasNext()) {
+            // next(): get the element under the current pointer and move the pointer to the next
+            String str = it.next();
+            System.out.println(str);
+            if (str.equals('c')) {
+                // 1.4
+                it.remove();
+                // strColl.remove(str);
+            }
+            // Don't use next() in this way
+            // System.out.println(it.next());
+            // System.out.println(it.next());
+        }
+        // 1.1 NoSuchElementException
+        // System.out.println(it.next());
+        System.out.println(strColl);
+```
 
 
-- iterator
-- for
-- lambda
+
+#### 1.0.3.2 for
+
+```java
+for (String s : strColl) {
+    s = "a";
+    System.out.println(s);
+}
+System.out.println(strColl); // [a, b, c, d, e, f], not [a, a, a, a, a, a]
+```
+
+![image-20250619085928224](./assets/win-java-collection.assets/image-20250619085928224.png)
+
+- s is a new "square", so when you edit s, the original list will not be changed
+
+#### 1.0.3.3 lambda
+
+```java
+// 3. lambda
+// 3.1 forEach()
+// underlying principle: fori, override accept()
+strColl.forEach(new Consumer<String>() {
+    @Override
+    public void accept(String s) {
+        System.out.println(s);
+    }
+});
+// 3.2 simplified
+// (parameter of method) -> {method body}
+strColl.forEach((String s) -> {
+    System.out.println(s);
+});
+// 3.3 simplified
+strColl.forEach(s -> System.out.println(s));
+// 3.4 simplified
+strColl.forEach(System.out::println);
+```
+
+
 
 ## 1.1 List
 
@@ -562,8 +649,6 @@ public boolean add(E e) {
     | public Set<K> keySet () | |
     | Collections<V> values () | |
     | putAll (Map<? extends K, ? extends V> m) |  |
-
-
 
 ## 2.1 HashMap
 
