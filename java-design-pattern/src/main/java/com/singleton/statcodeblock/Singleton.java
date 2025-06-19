@@ -1,9 +1,7 @@
 package com.singleton.statcodeblock;
 
 /**
- * once you load the class Singleton
- * the instance will be created no matter if you use it or not
- * it can be waste if you don't use it
+ * with "static member variable" implementation once you load the class Singleton the instance will be created no matter if you use it or not, it can be waste if you don't use it
  */
 public class Singleton {
 

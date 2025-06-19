@@ -4,6 +4,7 @@ public class Client {
 
     public static void main(String[] args) {
         
+        // avoid "new Singleton"
         Singleton s1 = Singleton.getInstance();
         Singleton s2 = Singleton.getInstance();
 

@@ -9,28 +9,23 @@
 
 ## 1.1 Singleton
 
-```plantuml
-@startuml
-skinparam classAttributeIconSize 0
+```mermaid
+classDiagram
+    class Singleton {
+        - instance: Singleton
+        - Singleton()
+        + getInstance(): Singleton
+    }
 
-object Client
-class Singleton {
-    - instance: Singleton
-    - Singleton()
-    + getInstance(): Singleton
-}
+    class Client
 
-Singleton <-- Client
+    Client --> Singleton
 
-note right of Singleton
-    <b><color:royalBlue>Singleton</color></b>
-    <b>Type:</b> Creational
-    Ensure a class only has one instance
-    and provide a global point of access to it.
-end note
-
-@enduml
+    %% Note about Singleton
+    note for Singleton "Singleton Type: Creational Ensure a class only has one instance and provide a global point of access to it."
 ```
+
+
 
 ### Features
 
@@ -43,9 +38,28 @@ end note
 
 #### instantiate when class loaded
 
-- static member variable
+- static member variable (= static code block)
+    ```java
+    public class Singleton {
+      private static Singleton instance = new Singleton();
+      private Singleton() {}
+      public static Singleton getInstance() {return instance;}
+    }
+    ```
 
-- static code block
+- static code block (= static memeber variable)
+    ```java
+    public class Singleton {
+      private static Singleton instance;
+      private Singleton () {};
+      static {
+        instance = new Singleton();
+      }
+      public static Singleton getInstance() {
+        return instance;
+      }
+    }
+    ```
 
 - enum singleton
     - very good Singleton design if you don't think about the storage waste
@@ -60,6 +74,17 @@ end note
 - double check singleton
 
 - static inner class
+  ```java
+  public class Singleton {
+    private Singleton() {}
+    private static class SingletonHolder {
+      private static final Singleton INSTANCE = new Singleton();
+    }
+    public static Singleton getInstance() {
+      return SingletonHolder.INSTANCE;
+    }
+  }
+  ```
 
 ### How to destroy the Singleton?
 
