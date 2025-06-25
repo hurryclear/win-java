@@ -317,3 +317,6 @@ public class Client {
 
 
 ### 2.2.2 Object adapter
+
+![image-20250625112934708](./assets/win-java-design-pattern.assets/image-20250625112934708.png)
+
