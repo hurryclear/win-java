@@ -245,6 +245,75 @@ public class SimpleCoffeeFactory {
 
 ## 2.1 Proxy
 
-### 2.1.1 Static Proxy
+- Subject class
+- Real subject class
+- Proxy class
 
-### 2.1.2 Dynamic Proxy
+### 2.1.1 Static proxy
+
+![image-20250624094750889](./assets/win-java-design-pattern.assets/image-20250624094750889.png)
+
+![image-20250624094054421](./assets/win-java-design-pattern.assets/image-20250624094054421.png)
+
+```java
+// 1. Subject class
+public interface SellTickets {
+    // sell method
+    public void sell();
+}
+
+// 2. Real subject class
+public class TrainStation implements SellTickets{
+
+    @Override
+    public void sell() {
+        System.out.println("train station sells ticket");
+    }
+}
+
+// 3. Proxy class
+public class ProxyPoint implements SellTickets{
+
+    // what's the relationship between TrainStation and ProxyPoint?
+    TrainStation trainStation = new TrainStation();
+    public void sell(){
+        System.out.println("Proxy point charges fee");
+        trainStation.sell();
+    }
+}
+
+// 4. Client
+public class Client {
+    public static void main(String[] args) {
+        ProxyPoint proxyPoint = new ProxyPoint();
+        // client wants to buy ticket ==> proxy point sells ticket
+        proxyPoint.sell();
+    }
+}
+```
+
+
+
+### 2.1.2 JDK Dynamic Proxy
+
+#### 原理？
+
+
+
+### 2.1.3 CGLIB Dynamic Proxy
+
+## 2.2 Adapter
+
+如何将中国的插头在欧洲使用？
+
+- Target interface: 我需要中国标准的插座
+- Adaptee: 欧洲插座
+- Adapter: 中转欧的转换头
+
+### 2.2.1 Class adapter
+
+![image-20250625102544284](./assets/win-java-design-pattern.assets/image-20250625102544284.png)
+
+
+
+### 2.2.2 Object adapter
